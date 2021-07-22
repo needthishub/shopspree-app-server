@@ -17,4 +17,10 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/product', productRouter);
 app.use('/order', orderRouter);
 
-app.listen(1234);
+app.get('/', (req, res) => {
+    res.send('Welcome to shopspree-app-server !')
+})
+
+const port = process.env.PORT || 1234;
+
+app.listen(port, () => console.log(`server started on port ${port}`));
